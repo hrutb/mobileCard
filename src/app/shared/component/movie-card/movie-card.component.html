@@ -1,0 +1,77 @@
+
+
+
+<div class="card mb-4 movieCard" >
+      <div class="card-body"
+            [ngClass]="{
+                  noProdAval:!mobileObj.isAvailable
+            }">
+          <div class="row">
+             <div class="col-md-4">
+                 <div class="img-container">
+                     <img *ngIf="mobileObj.image; else noImg"  [src]="mobileObj.image || 'https://placeholder.net/600x600.png'"
+                           [alt]="mobileObj.name"
+                           [title]="mobileObj.name">
+
+                          <ng-template #noImg>
+                             <p class="NoprodImgText"> <strong>No Image</strong></p>
+                          </ng-template>
+                 </div>
+                  <div class="d-flex justify-content-between mt-2" >
+                    <button mat-stroked-button color="primary" [disabled]="!mobileObj.isAvailable">Add to cart</button>
+                    <button mat-stroked-button color="accent" [disabled]="!mobileObj.isAvailable">Buy now</button>
+
+                  </div>
+
+              </div>
+
+              <div class="col-md-6">
+                   <h3 class="">
+                      {{mobileObj.name}}
+
+                      <small class="badge"
+                         [ngClass]="{
+                                'bg-success': mobileObj.rating>=4,
+                                'bg-warning': mobileObj.rating>=3 &&mobileObj.rating<=4,
+                                'bg-danger':mobileObj.rating<=2.5
+                         }"
+                        >
+                        {{mobileObj.rating}}
+
+                      </small>
+                   </h3>
+                <ul class="list-group-flush">
+                   <li class="list-group-item" *ngFor="let feature of mobileObj.features">
+                           {{feature}}
+                   </li>
+                </ul>
+
+              </div>
+              <div class="col-md-2">
+                  <h4>
+                       <p class="text-danger">15%Off sale</p>
+                       {{mobileObj.price-(mobileObj.price * .15) | currency:'INR'}}
+
+                       <small>
+                          <del>
+                            {{mobileObj.price | currency :'INR'}}
+                          </del>
+                       </small>
+                       <br>
+                       <strong class="m-0"
+                            *ngIf="mobileObj.noOfItems<10"
+                             [ngClass]="{
+                              'text-success':mobileObj.noOfItems<10
+                               }">
+                           Only {{mobileObj.noOfItems}} left!!
+                       </strong>
+                  </h4>
+              </div>
+
+            </div>
+          </div>
+          <p class="productNotAval" *ngIf="!mobileObj.isAvailable">
+                Product is not Available !!!
+          </p>
+
+</div>

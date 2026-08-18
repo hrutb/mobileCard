@@ -1,0 +1,15 @@
+
+<header>
+       <h2>Mobile Section</h2>
+</header>
+
+
+
+<div class="container">
+  <div class="row">
+  <div class="col-md-8 mt-4 offset-md-3" *ngFor="let mobile of mobileArr">
+
+    <app-movie-card  [mobileObj]="mobile"></app-movie-card>
+  </div>
+  </div>
+</div>

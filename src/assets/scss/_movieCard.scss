@@ -1,0 +1,38 @@
+@import './mixins';
+@import './var';
+
+.movieCard{
+
+    .img-container{
+      position: relative;
+      height: 200px;
+
+      img{
+          height: 100%;
+          width: 100%;
+          object-fit:cover;
+        }
+
+        .NoprodImgText{
+             top: 0;
+             left:0;
+             color: rgba(114, 6, 255, 0.803);
+             @include atcenter(center,center)
+        }
+    }
+
+      .noProdAval{
+            filter:blur(1px) grayscale(1);
+      }
+
+    .productNotAval{
+            position: absolute;
+             top:0;
+             left: 0;
+             color:$color-pri;
+             height: 100%;
+             width: 100%;
+             
+             @include atcenter(center,center);
+    }
+}
