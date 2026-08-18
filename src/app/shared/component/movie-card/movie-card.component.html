@@ -26,20 +26,21 @@
               </div>
 
               <div class="col-md-6">
-                   <h3 class="">
+                   <h2 class="ml-4">
+
                       {{mobileObj.name}}
 
-                      <small class="m-0 badge"
+                      <small class=" ml-2  text-light badge"
                          [ngClass]="{
                                 'bg-success': mobileObj.rating>=4,
                                 'bg-warning': mobileObj.rating>=3 &&mobileObj.rating<=4,
                                 'bg-danger':mobileObj.rating<=2.5
                          }"
                         >
-                        {{mobileObj.rating}}
+                          {{mobileObj.rating}}
 
                       </small>
-                   </h3>
+                   </h2>
                 <ul class="list-group-flush">
                    <li class="list-group-item" *ngFor="let feature of mobileObj.features">
                            {{feature}}
