@@ -29,7 +29,7 @@
                    <h3 class="">
                       {{mobileObj.name}}
 
-                      <small class="badge"
+                      <small class="m-0 badge"
                          [ngClass]="{
                                 'bg-success': mobileObj.rating>=4,
                                 'bg-warning': mobileObj.rating>=3 &&mobileObj.rating<=4,
@@ -58,7 +58,7 @@
                           </del>
                        </small>
                        <br>
-                       <strong class="m-0"
+                       <strong
                             *ngIf="mobileObj.noOfItems<10"
                              [ngClass]="{
                               'text-success':mobileObj.noOfItems<10
